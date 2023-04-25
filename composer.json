@@ -16,7 +16,7 @@
     ],
     "type": "wordpress-plugin",
     "extra": {
-        "installer-name": "dkzr-event-maker-fixes"
+        "installer-name": "dkzr-events-maker"
     },
     "require": {
         "composer/installers": "^2.0"
