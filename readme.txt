@@ -1,6 +1,5 @@
-=== Events Maker by dFactory===
-Contributors: dfactory
-Donate link: http://www.dfactory.eu/
+=== Events Maker ===
+Contributors: dfactory, joostdekeijzer
 Tags: event, event categories, events management, event management, events manager, event manager, event organizer, events calendar, events maker, google map, map, locations, organizers, widget, attendance, attendee, Booking, calendar, event registration, ticket, tickets, ticketing, bookings
 Requires at least: 3.5
 Tested up to: 4.3.0
@@ -12,7 +11,9 @@ Fully featured event management system including recurring events, locations man
 
 == Description ==
 
-[Events Maker](http://www.dfactory.eu/plugins/events-maker/) is a fully featured event management plugin from [dFactory](http://www.dfactory.eu/) including recurring events, locations management, full calendar, iCal feed/files support and google maps integration.
+This is a fork of [Events Maker](http://www.dfactory.eu/plugins/events-maker/), a fully featured event management plugin from [dFactory](http://www.dfactory.eu/) including recurring events, locations management, full calendar, iCal feed/files support and google maps integration.
+
+Since the original plugin does not seem to be maintained, this fork is created.
 
 = Powerful, flexible events management =
 
