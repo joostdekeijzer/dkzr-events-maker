@@ -1,0 +1,24 @@
+{
+    "name": "dkzr/events-maker",
+    "description": "Fork of the Events Maker plugin",
+    "keywords": ["wordpress"],
+    "homepage": "https://dkzr.nl/",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Joost de Keijzer",
+            "email": "j@dkzr.nl",
+            "homepage": "https://dkzr.nl/"
+        },
+        {
+            "name": "dFactory"
+        }
+    ],
+    "type": "wordpress-plugin",
+    "extra": {
+        "installer-name": "dkzr-event-maker-fixes"
+    },
+    "require": {
+        "composer/installers": "^2.0"
+    }
+}
