@@ -71,7 +71,7 @@ class Events_Maker_Query {
 			foreach ( $post_types as $post_type ) {
 				if ( $pagenow === 'edit.php' && isset( $query->query_vars['post_type'] ) && $query->query_vars['post_type'] === $post_type ) {
 					$em_helper = new Events_Maker_Helper();
-					$meta_args = $query->get( 'meta_query' );
+					$meta_args = $query->get( 'meta_query', [] );
 					$start = ! empty( $_GET['start_date'] ) ? sanitize_text_field( $_GET['start_date'] ) : '';
 					$end = ! empty( $_GET['end_date'] ) ? sanitize_text_field( $_GET['end_date'] ) : '';
 					$sb = $em_helper->is_valid_date( $start );
@@ -286,7 +286,7 @@ class Events_Maker_Query {
 			elseif ( $query->query_vars['event_show_occurrences'] && ! $query->query_vars['event_show_past_events'] && $event_order_by )
 				$query->query_vars['meta_key'] = '';
 
-			$meta_args = $query->get( 'meta_query' );
+			$meta_args = $query->get( 'meta_query', [] );
 
 			if ( $query->query_vars['event_show_occurrences'] ) {
 				global $wpdb;
@@ -402,7 +402,7 @@ class Events_Maker_Query {
 				$keys = array( 'start' => '_event_start_date', 'end' => '_event_end_date' );
 
 			$event_order_by = true;
-			$meta_args = $query->get( 'meta_query' );
+			$meta_args = $query->get( 'meta_query', [] );
 
 			if ( isset( $query->query_vars['orderby'] ) ) {
 				
@@ -829,7 +829,7 @@ class Events_Maker_Query {
 		// get event date
 		$em_helper = new Events_Maker_Helper();
 		
-		$meta_query = $query->get( 'meta_query' );
+		$meta_query = $query->get( 'meta_query', [] );
 		$start = ! empty( $_GET['start_date'] ) ? sanitize_text_field( $_GET['start_date'] ) : '';
 		$end = ! empty( $_GET['end_date'] ) ? sanitize_text_field( $_GET['end_date'] ) : '';
 		$sb = $em_helper->is_valid_date( $start );
