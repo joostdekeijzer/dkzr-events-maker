@@ -110,7 +110,7 @@ class Events_Maker_Admin {
 				wp_enqueue_script( 'events-maker-edit-tags' );
 
 				wp_register_script(
-					'events-maker-google-maps', sprintf( 'https://maps.googleapis.com/maps/api/js?key=%s&sensor=false&language=%s', esc_url( Events_Maker()->options['general']['google_maps_api_key'] ), substr( get_locale(), 0, 2 ) )
+					'events-maker-google-maps', sprintf( 'https://maps.googleapis.com/maps/api/js?key=%s&sensor=false&language=%s', esc_attr( Events_Maker()->options['general']['google_maps_api_key'] ), substr( get_locale(), 0, 2 ) )
 				);
 
 				// on event locations only
