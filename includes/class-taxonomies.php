@@ -387,7 +387,7 @@ class Events_Maker_Taxonomies {
 		);
 
 		// retrieve the existing value(s) for this meta field, this returns an array
-		$term_meta = get_option( 'event_category_' . $term->term_taxonomy_id );
+		$term_meta = get_option( 'event_category_' . $term->term_taxonomy_id, [] );
 
 		foreach ( $this->category_fields as $key => $field ) {
 			$field['value'] = $term_meta[$key];
@@ -405,7 +405,7 @@ class Events_Maker_Taxonomies {
 		);
 
 		// retrieve the existing value(s) for this meta field, this returns an array
-		$term_meta = get_option( 'event_location_' . $term->term_taxonomy_id );
+		$term_meta = get_option( 'event_location_' . $term->term_taxonomy_id, [] );
 
 		foreach ( $this->location_fields as $key => $field ) {
 			// backward compatibility
@@ -427,7 +427,7 @@ class Events_Maker_Taxonomies {
 		);
 
 		// retrieve the existing value(s) for this meta field, this returns an array
-		$term_meta = get_option( 'event_organizer_' . $term->term_taxonomy_id );
+		$term_meta = get_option( 'event_organizer_' . $term->term_taxonomy_id, [] );
 
 		foreach ( $this->organizer_fields as $key => $field ) {
 			$field['value'] = $term_meta[$key];
@@ -442,7 +442,7 @@ class Events_Maker_Taxonomies {
 		if ( ! current_user_can( 'manage_event_categories' ) )
 			return;
 
-		$term_meta = get_option( 'event_category_' . $tt_id );
+		$term_meta = get_option( 'event_category_' . $tt_id, [] );
 
 		foreach ( $this->category_fields as $key => $field ) {
 			if ( isset( $_POST[$key] ) )
@@ -460,7 +460,7 @@ class Events_Maker_Taxonomies {
 		if ( ! current_user_can( 'manage_event_locations' ) )
 			return;
 
-		$term_meta = get_option( 'event_location_' . $tt_id );
+		$term_meta = get_option( 'event_location_' . $tt_id, [] );
 
 		foreach ( $this->location_fields as $key => $field ) {
 			if ( isset( $_POST[$key] ) )
@@ -478,7 +478,7 @@ class Events_Maker_Taxonomies {
 		if ( ! current_user_can( 'manage_event_organizers' ) )
 			return;
 
-		$term_meta = get_option( 'event_organizer_' . $tt_id );
+		$term_meta = get_option( 'event_organizer_' . $tt_id, [] );
 
 		foreach ( $this->organizer_fields as $key => $field ) {
 			if ( isset( $_POST[$key] ) )
@@ -493,6 +493,9 @@ class Events_Maker_Taxonomies {
 	 * Columns for event-category taxonomy.
 	 */
 	public function event_category_columns( $columns ) {
+		if ( empty( $columns ) )
+			return $columns;
+
 		// move posts count to default
 		$temp = $columns['posts'];
 		unset( $columns['posts'] );
@@ -536,7 +539,7 @@ class Events_Maker_Taxonomies {
 		$term = get_term( $term_id, $taxonomy );
 
 		// retrieve the existing value(s) for this term meta fields
-		$term_meta = get_option( 'event_category_' . $term->term_taxonomy_id );
+		$term_meta = get_option( 'event_category_' . $term->term_taxonomy_id, [] );
 
 		switch ( $column_name ) {
 			case 'color':
