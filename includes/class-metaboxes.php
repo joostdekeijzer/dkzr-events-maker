@@ -172,7 +172,7 @@ class Events_Maker_Metaboxes {
 			global $wp_locale;
 
 			wp_register_script(
-				'events-maker-datetimepicker', EVENTS_MAKER_URL . '/assets/jquery-timepicker-addon/jquery-ui-timepicker-addon.min.js', array( 'jquery' )
+				'events-maker-datetimepicker', EVENTS_MAKER_URL . '/assets/jquery-timepicker-addon/jquery-ui-timepicker-addon.min.js', array( 'jquery', 'jquery-ui-core', 'jquery-ui-datepicker', 'jquery-ui-slider' )
 			);
 
 			$lang = str_replace( '_', '-', get_locale() );
@@ -192,7 +192,7 @@ class Events_Maker_Metaboxes {
 			}
 
 			wp_register_script(
-				'events-maker-admin-post', EVENTS_MAKER_URL . '/js/admin-post.js', array( 'jquery', 'jquery-ui-core', 'jquery-ui-datepicker', 'jquery-ui-slider', 'events-maker-datetimepicker' )
+				'events-maker-admin-post', EVENTS_MAKER_URL . '/js/admin-post.js', array( 'events-maker-datetimepicker' )
 			);
 
 			wp_enqueue_script( 'events-maker-admin-post' );
