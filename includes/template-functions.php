@@ -242,7 +242,7 @@ if ( ! function_exists( 'em_display_event_locations' ) ) {
 						endif;
 
 						if ( $location_details ) :
-							$output .= '<span class="location-details">(' . implode( ' ', $location_details ) . ')</span>';
+							$output .= '<span class="location-details">(' . implode( ', ', $location_details ) . ')</span>';
 						endif;
 
 						$output .= '</span>';
