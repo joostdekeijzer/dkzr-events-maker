@@ -92,7 +92,7 @@ class Events_Maker_Admin {
 			'events-maker-wplike', EVENTS_MAKER_URL . '/css/wp-like-ui-theme.css'
 		);
 
-		if ( $pagenow === 'edit-tags.php' && in_array( $screen->post_type, apply_filters( 'em_event_post_type', array( 'event' ) ) ) ) {
+		if ( in_array( $pagenow, array( 'edit-tags.php', 'term.php' ) ) && in_array( $screen->post_type, apply_filters( 'em_event_post_type', array( 'event' ) ) ) ) {
 			// event location & organizer
 			if ( ($screen->id === 'edit-event-organizer' && $screen->taxonomy === 'event-organizer') || ($screen->id === 'edit-event-location' && $screen->taxonomy === 'event-location') || ($screen->id === 'edit-event-category' && $screen->taxonomy === 'event-category') ) {
 				$timezone = explode( '/', get_option( 'timezone_string' ) );
