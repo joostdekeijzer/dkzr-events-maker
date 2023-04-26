@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) )
 	exit; // exit if accessed directly
 
 // if in a shortcode, extract args
-if ( $args && is_array( $args ) ) :
+if ( ! empty( $args ) && is_array( $args ) ) :
 	extract( $args );
 endif;
 
