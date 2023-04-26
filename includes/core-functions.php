@@ -502,6 +502,10 @@ function em_get_currency_symbol( $price = '' ) {
 			case 6:
 				$price = number_format( $price, 2, '.', ' ' );
 				break;
+
+			case 7:
+				$price = number_format( $price, 2, ',', '.' );
+				break;
 		}
 
 		return apply_filters( 'em_get_currency_symbol', ( $options['currencies']['position'] === 'after' ? $price . ' ' . $symbol : $symbol . ' ' . $price ), $price );
