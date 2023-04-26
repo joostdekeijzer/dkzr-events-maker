@@ -190,7 +190,7 @@ final class Events_Maker {
 		$this->transient_id = (isset( $_COOKIE['em_transient_id'] ) ? $_COOKIE['em_transient_id'] : 'em_' . sha1( $this->generate_hash() ));
 
 		// actions
-		add_action( 'plugins_loaded', array( &$this, 'init_session' ), 1 );
+		add_action( 'send_headers', array( &$this, 'init_session' ), 1 );
 		add_action( 'plugins_loaded', array( &$this, 'load_textdomain' ) );
 		add_action( 'wp_enqueue_scripts', array( &$this, 'front_scripts_styles' ) );
 		add_action( 'after_setup_theme', array( &$this, 'load_defaults' ) );
