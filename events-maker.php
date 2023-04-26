@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Events Maker 2
  * Description: Fully featured event management system including recurring events, locations management, full calendar, iCal feed/files, google maps and more.
- * Version: 2.0.2
+ * Version: 2.0.3
  * Author: dFactory, joostdekeijzer
  * License: MIT License
  * License URI: http://opensource.org/licenses/MIT
