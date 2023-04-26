@@ -83,8 +83,9 @@ final class Events_Maker {
 			'use_organizers'		 => true,
 			'use_tags'				 => true,
 			'use_event_tickets'		 => true,
+			'google_maps_api_key'		=> '',
 			'default_event_options'	 => array(
-				'google_map'				 => true,
+				'google_map'				 => false,
 				'display_gallery'			 => true,
 				'display_location_details'	 => true,
 				'price_tickets_info'		 => true,

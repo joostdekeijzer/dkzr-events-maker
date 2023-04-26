@@ -37,9 +37,12 @@ class Events_Maker_Metaboxes {
 			return;
 
 		$options = array(
-			'google_map'				 => __( 'Google Map', 'events-maker' ),
 			'display_location_details'	 => __( 'Location Details', 'events-maker' )
 		);
+
+		// google maps API key is available
+		if ( Events_Maker()->options['general']['google_maps_api_key'] )
+			$options = array_merge( $options, array( 'google_map' => __( 'Google Map', 'events-maker' ) ) );
 
 		// if gallery is enabled
 		if ( Events_Maker()->options['general']['supports']['gallery'] )
@@ -835,14 +838,18 @@ class Events_Maker_Metaboxes {
 		// event display options validation				
 		if ( isset( $_POST['event_nonce_options'] ) && wp_verify_nonce( $_POST['event_nonce_options'], 'events_maker_save_event_options' ) ) {
 			$options = array(
-				'google_map'				 => __( 'Google Map', 'events-maker' ),
 				'display_gallery'			 => __( 'Event Gallery', 'events-maker' ),
 				'display_location_details'	 => __( 'Location Details', 'events-maker' )
 			);
 
+			// google maps API key is available
+			if ( Events_Maker()->options['general']['google_maps_api_key'] )
+				$options = array_merge( $options, array( 'google_map' => __( 'Google Map', 'events-maker' ) ) );
+
 			// if tickets are enabled
 			if ( Events_Maker()->options['general']['use_event_tickets'] )
 				$options = array_merge( $options, array( 'price_tickets_info' => __( 'Tickets', 'events-maker' ) ) );
+
 			// if organizers are enabled
 			if ( Events_Maker()->options['general']['use_organizers'] )
 				$options = array_merge( $options, array( 'display_organizer_details' => __( 'Organizer Details', 'events-maker' ) ) );

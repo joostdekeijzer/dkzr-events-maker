@@ -542,6 +542,9 @@ class Events_Maker_Shortcodes {
 	 * Google map shortcode.
 	 */
 	public function google_map_shortcode( $args ) {
+		if ( empty( Events_Maker()->options['general']['google_maps_api_key'] ) )
+			return '<!-- event-google-map disabled, please configure a Google Maps API Key -->';
+
 		$markers = array();
 		$map_types = array( 'hybrid', 'roadmap', 'satellite', 'terrain' );
 		$booleans = array( 'on', 'off' );
@@ -648,7 +651,7 @@ class Events_Maker_Shortcodes {
 		}
 
 		wp_register_script(
-			'events-maker-google-maps', 'https://maps.googleapis.com/maps/api/js?sensor=false&language=' . substr( get_locale(), 0, 2 )
+			'events-maker-google-maps', sprintf( 'https://maps.googleapis.com/maps/api/js?key=%s&sensor=false&language=%s', esc_url( Events_Maker()->options['general']['google_maps_api_key'] ), substr( get_locale(), 0, 2 ) )
 		);
 
 		wp_register_script(

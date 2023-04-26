@@ -232,6 +232,7 @@ class Events_Maker_Settings {
 		add_settings_field( 'em_use_tags', __( 'Tags', 'events-maker' ), array( $this, 'em_use_tags' ), 'events_maker_general', 'events_maker_general' );
 		add_settings_field( 'em_use_organizers', __( 'Organizers', 'events-maker' ), array( $this, 'em_use_organizers' ), 'events_maker_general', 'events_maker_general' );
 		add_settings_field( 'em_use_event_tickets', __( 'Tickets', 'events-maker' ), array( $this, 'em_use_event_tickets' ), 'events_maker_general', 'events_maker_general' );
+		add_settings_field( 'em_google_maps_api_key', __( 'Google Maps API Key', 'events-maker' ), array( $this, 'em_google_maps_api_key' ), 'events_maker_general', 'events_maker_general' );
 		add_settings_field( 'em_ical_feed', __( 'iCal feed/files', 'events-maker' ), array( $this, 'em_ical_feed' ), 'events_maker_general', 'events_maker_general' );
 		add_settings_field( 'em_events_in_rss', __( 'RSS feed', 'events-maker' ), array( $this, 'em_events_in_rss' ), 'events_maker_general', 'events_maker_general' );
 		add_settings_field( 'em_deactivation_delete', __( 'Deactivation', 'events-maker' ), array( $this, 'em_deactivation_delete' ), 'events_maker_general', 'events_maker_general' );
@@ -374,15 +375,33 @@ class Events_Maker_Settings {
 	/**
 	 * 
 	 */
+	public function em_google_maps_api_key() {
+		echo '
+		<div id="em_google_maps_api_key">
+			<fieldset>
+				<input type="text" size="40" name="events_maker_general[google_maps_api_key]" value="' . esc_attr( Events_Maker()->options['general']['google_maps_api_key'] ) . '" />
+				<p class="description">' . __( 'You need a Google Maps API Key to enable the maps feature.', 'events-maker' ) . '</p>
+			</fieldset>
+		</div>';
+	}
+
+	/**
+	 * 
+	 */
 	public function em_default_event_options() {
 		$options = array(
-			'google_map'				 => __( 'Google Map', 'events-maker' ),
 			'display_gallery'			 => __( 'Event Gallery', 'events-maker' ),
 			'display_location_details'	 => __( 'Location Details', 'events-maker' )
 		);
+
+		// google maps API key is available
+		if ( Events_Maker()->options['general']['google_maps_api_key'] )
+			$options = array_merge( $options, array( 'google_map' => __( 'Google Map', 'events-maker' ) ) );
+
 		// if tickets are enabled
 		if ( Events_Maker()->options['general']['use_event_tickets'] )
 			$options = array_merge( $options, array( 'price_tickets_info' => __( 'Tickets Info', 'events-maker' ) ) );
+
 		// if organizers are enabled
 		if ( Events_Maker()->options['general']['use_organizers'] )
 			$options = array_merge( $options, array( 'display_organizer_details' => __( 'Organizer Details', 'events-maker' ) ) );
@@ -1183,6 +1202,9 @@ class Events_Maker_Settings {
 			// use tickets
 			$input['use_event_tickets'] = isset( $input_old['use_event_tickets'] );
 
+			// maps api key
+			$input['google_maps_api_key'] = sanitize_text_field( $input_old['google_maps_api_key'] );
+
 			// iCal feed
 			$input['ical_feed'] = isset( $input_old['ical_feed'] );
 
@@ -1212,6 +1234,7 @@ class Events_Maker_Settings {
 			$input['use_organizers'] = Events_Maker()->defaults['general']['use_organizers'];
 			$input['use_tags'] = Events_Maker()->defaults['general']['use_tags'];
 			$input['use_event_tickets'] = Events_Maker()->defaults['general']['use_event_tickets'];
+			$input['google_maps_api_key'] = Events_Maker()->defaults['general']['google_maps_api_key'];
 			$input['ical_feed'] = Events_Maker()->defaults['general']['ical_feed'];
 			$input['events_in_rss'] = Events_Maker()->defaults['general']['events_in_rss'];
 			$input['deactivation_delete'] = Events_Maker()->defaults['general']['deactivation_delete'];

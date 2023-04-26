@@ -9,8 +9,8 @@
  * @since 	1.2.0
  */
 
-if ( ! defined( 'ABSPATH' ) )
-	exit; // exit if accessed directly
+if ( ! defined( 'ABSPATH' ) || empty( Events_Maker()->options['general']['google_maps_api_key'] ) )
+	exit; // exit if accessed directly or no API Key configured
 	
 // locations
 if ( is_tax() )

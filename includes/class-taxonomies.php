@@ -114,6 +114,10 @@ class Events_Maker_Taxonomies {
 			)
 		) );
 
+		// check for Google Maps API Key
+		if ( empty( Events_Maker()->options['general']['google_maps_api_key'] ) )
+			unset( $this->location_fields['google_map'] );
+
 		$this->organizer_fields = apply_filters( 'em_event_organizer_fields', array(
 			'contact_name'	 => array(
 				'id'			 => 'em-contact_name',
@@ -250,10 +254,12 @@ class Events_Maker_Taxonomies {
 				break;
 
 			case 'google_map':
-
-				$content = '<input id="' . $field['id'] . '-latitude" name="' . $field['name'] . '[latitude]" type="hidden" value="' . ( ! empty( $field['value']['latitude'] ) ? $field['value']['latitude'] : 0) . '" />';
-				$content .= '<input id="' . $field['id'] . '-longitude" name="' . $field['name'] . '[longitude]" type="hidden" value="' . ( ! empty( $field['value']['longitude'] ) ? $field['value']['longitude'] : 0) . '" />';
-				$content .= '<div id="' . $field['id'] . '" class="google-map-container"></div>';
+				if ( Events_Maker()->options['general']['google_maps_api_key'] ) {
+					$content = '<input id="' . $field['id'] . '-latitude" name="' . $field['name'] . '[latitude]" type="hidden" value="' . ( ! empty( $field['value']['latitude'] ) ? $field['value']['latitude'] : 0) . '" />';
+					$content .= '<input id="' . $field['id'] . '-longitude" name="' . $field['name'] . '[longitude]" type="hidden" value="' . ( ! empty( $field['value']['longitude'] ) ? $field['value']['longitude'] : 0) . '" />';
+					$content .= '<div id="' . $field['id'] . '" class="google-map-container"></div>';
+				} else
+					$content .= '<p>Google Maps is disabled, please configure a Google Maps API Key to enable</p>';
 
 				break;
 
