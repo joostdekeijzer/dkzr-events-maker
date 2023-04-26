@@ -176,26 +176,9 @@ class Events_Maker_Settings {
 							<h4 class="inner">' . __( 'Need support?', 'events-maker' ) . '</h4>
 							<p class="inner">' . __( 'If you are having problems with this plugin, checkout plugin', 'events-maker' ) . '  <a href="http://www.dfactory.eu/docs/events-maker-plugin/?utm_source=events-maker-settings&utm_medium=link&utm_campaign=documentation" target="_blank" title="' . __( 'Documentation', 'events-maker' ) . '">' . __( 'Documentation', 'events-maker' ) . '</a> ' . __( 'or talk about them in the', 'events-maker' ) . ' <a href="http://www.dfactory.eu/support/?utm_source=events-maker-settings&utm_medium=link&utm_campaign=support" target="_blank" title="' . __( 'Support forum', 'events-maker' ) . '">' . __( 'Support forum', 'events-maker' ) . '</a></p>
 							<hr />
-							<h4 class="inner">' . __( 'Do you like this plugin?', 'events-maker' ) . '</h4>
-							<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" class="inner">
-								<input type="hidden" name="cmd" value="_s-xclick">
-								<input type="hidden" name="hosted_button_id" value="X53L5RETQ24KQ">
-								<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-								<img alt="" border="0" src="https://www.paypalobjects.com/pl_PL/i/scr/pixel.gif" width="1" height="1">
-							</form>
-							<p class="inner"><a href="http://wordpress.org/support/view/plugin-reviews/events-maker" target="_blank" title="' . __( 'Rate it 5', 'events-maker' ) . '">' . __( 'Rate it 5', 'events-maker' ) . '</a> ' . __( 'on WordPress.org', 'events-maker' ) . '<br />' .
-		__( 'Blog about it & link to the', 'events-maker' ) . ' <a href="http://www.dfactory.eu/plugins/events-maker/?utm_source=events-maker-settings&utm_medium=link&utm_campaign=blog-about" target="_blank" title="' . __( 'plugin page', 'events-maker' ) . '">' . __( 'plugin page', 'events-maker' ) . '</a><br />' .
-		__( 'Check out our other', 'events-maker' ) . ' <a href="http://www.dfactory.eu/plugins/?utm_source=events-maker-settings&utm_medium=link&utm_campaign=other-plugins" target="_blank" title="' . __( 'WordPress plugins', 'events-maker' ) . '">' . __( 'WordPress plugins', 'events-maker' ) . '</a>
-							</p>     
-							<hr />
 							<p class="df-link inner">' . __( 'Created by', 'events-maker' ) . ' <a href="http://www.dfactory.eu/?utm_source=events-maker-settings&utm_medium=link&utm_campaign=created-by" target="_blank" title="dFactory - Quality plugins for WordPress"><img src="' . EVENTS_MAKER_URL . '/images/logo-dfactory.png' . '" title="dFactory - Quality plugins for WordPress" alt="dFactory - Quality plugins for WordPress" /></a></p>
 						</div>
 					</div>';
-		/*
-		  <div class="df-ads">
-		  <a href="http://www.dfactory.eu/plugins/frontend-users/?utm_source=events-maker-settings&utm_medium=link&utm_campaign=banner" target="_blank" title="Frontend Users by dFactory"><img src="'.EVENTS_MAKER_URL.'/images/ad-frontend-users.png'.'" alt="Frontend Users by dFactory" /></a>
-		  </div>
-		 */
 		echo '
 				</div>
 				<form action="options.php" method="post">';
