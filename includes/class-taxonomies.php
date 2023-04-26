@@ -255,8 +255,8 @@ class Events_Maker_Taxonomies {
 
 			case 'google_map':
 				if ( Events_Maker()->options['general']['google_maps_api_key'] ) {
-					$content = '<input id="' . $field['id'] . '-latitude" name="' . $field['name'] . '[latitude]" type="hidden" value="' . ( ! empty( $field['value']['latitude'] ) ? $field['value']['latitude'] : 0) . '" />';
-					$content .= '<input id="' . $field['id'] . '-longitude" name="' . $field['name'] . '[longitude]" type="hidden" value="' . ( ! empty( $field['value']['longitude'] ) ? $field['value']['longitude'] : 0) . '" />';
+					$content = '<input id="' . $field['id'] . '-latitude" name="' . $field['name'] . '[latitude]" type="hidden" value="' . ( ! empty( $field['value']['latitude'] ) ? $field['value']['latitude'] : 0) . '" />';			// 51.9244043 for Hofplein R'dam!
+					$content .= '<input id="' . $field['id'] . '-longitude" name="' . $field['name'] . '[longitude]" type="hidden" value="' . ( ! empty( $field['value']['longitude'] ) ? $field['value']['longitude'] : 0) . '" />';	//  4.4777800 for Hofplein R'dam!
 					$content .= '<div id="' . $field['id'] . '" class="google-map-container"></div>';
 				} else
 					$content .= '<p>Google Maps is disabled, please configure a Google Maps API Key to enable</p>';
