@@ -224,6 +224,9 @@ if ( ! function_exists( 'em_display_event_locations' ) ) {
 
 						if ( $location_details ) :
 
+							if ( isset( $location_details['google_map'] ) )
+								unset( $location_details['google_map'] );
+
 							// backward compatibility
 							if ( isset( $location_details['latitude'] ) )
 								unset( $location_details['latitude'] );
