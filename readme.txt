@@ -1,5 +1,6 @@
 === Events Maker ===
 Contributors: dfactory, joostdekeijzer
+Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=j@dkzr.nl&item_name=dkzr-events-maker+WordPress+plugin&item_number=Joost+de+Keijzer&currency_code=EUR&amount=10
 Tags: event, event categories, events management, event management, events manager, event manager, event organizer, events calendar, events maker, google map, map, locations, organizers, widget, attendance, attendee, Booking, calendar, event registration, ticket, tickets, ticketing, bookings
 Requires at least: 3.5
 Tested up to: 6.2
