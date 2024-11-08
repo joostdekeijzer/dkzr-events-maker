@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Events Maker 2
  * Description: Fully featured event management system including recurring events, locations management, full calendar, iCal feed/files, google maps and more.
- * Version: 2.0.4
+ * Version: 2.0.5
  * Author: dFactory, joostdekeijzer
  * License: MIT License
  * License URI: http://opensource.org/licenses/MIT
@@ -159,6 +159,24 @@ final class Events_Maker {
 	);
 	private $transient_id = '';
 
+	// class objects
+	public $admin;
+	public $ical;
+	public $listing;
+	public $localisation;
+	public $metaboxes;
+	public $post_types;
+	public $query;
+	public $settings;
+	public $shortcodes;
+	public $taxonomies;
+	public $templates;
+	public $update;
+	public $welcome;
+	public $widgets;
+	public $wpml;
+
+
 	public function __clone() {}
 	public function __wakeup() {}
 
@@ -213,7 +231,7 @@ final class Events_Maker {
 
 			$activated_blogs = array();
 			$current_blog_id = $wpdb->blogid;
-			$blogs_ids = $wpdb->get_col( $wpdb->prepare( 'SELECT blog_id FROM ' . $wpdb->blogs, '' ) );
+			$blogs_ids = $wpdb->get_col( "SELECT blog_id FROM {$wpdb->blogs}" );
 
 			foreach ( $blogs_ids as $blog_id ) {
 				switch_to_blog( $blog_id );
@@ -274,7 +292,7 @@ final class Events_Maker {
 			global $wpdb;
 
 			$current_blog_id = $wpdb->blogid;
-			$blogs_ids = $wpdb->get_col( $wpdb->prepare( 'SELECT blog_id FROM ' . $wpdb->blogs, '' ) );
+			$blogs_ids = $wpdb->get_col( "SELECT blog_id FROM {$wpdb->blogs}" );
 
 			if ( ! ($activated_blogs = get_site_option( 'events_maker_activated_blogs', false, false )) )
 				$activated_blogs = array();

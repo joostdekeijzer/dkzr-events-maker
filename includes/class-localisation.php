@@ -8,6 +8,8 @@ new Events_Maker_Localisation();
  * Events_Maker_Localisation Class.
  */
 class Events_Maker_Localisation {
+	public $currencies;
+	public $countries;
 
 	public function __construct() {
 		// set instance

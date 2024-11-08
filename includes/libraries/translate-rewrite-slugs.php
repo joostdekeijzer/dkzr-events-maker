@@ -16,7 +16,7 @@ if ( ! class_exists( 'WPML_Translate_Rewrite_Slugs' ) ) {
 		// active plugin - WPML or Polylang
 		public $plugin;
 		// array of languages
-		public $langauges;
+		public $languages;
 		// default language
 		public $default_lang;
 		// array of custom post types

@@ -31,7 +31,7 @@ class Events_Maker_Update {
 					global $wpdb;
 
 					$current_blog_id = $wpdb->blogid;
-					$blogs_ids = $wpdb->get_col( $wpdb->prepare( 'SELECT blog_id FROM ' . $wpdb->blogs, '' ) );
+					$blogs_ids = $wpdb->get_col( "SELECT blog_id FROM {$wpdb->blogs}" );
 
 					foreach ( $blogs_ids as $blog_id ) {
 						switch_to_blog( $blog_id );
@@ -71,7 +71,7 @@ class Events_Maker_Update {
 			global $wpdb;
 
 			$current_blog_id = $wpdb->blogid;
-			$blogs_ids = $wpdb->get_col( $wpdb->prepare( 'SELECT blog_id FROM ' . $wpdb->blogs, '' ) );
+			$blogs_ids = $wpdb->get_col( "SELECT blog_id FROM {$wpdb->blogs}" );
 			$update_required = false;
 
 			foreach ( $blogs_ids as $blog_id ) {
